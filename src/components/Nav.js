@@ -27,7 +27,8 @@ function Nav(props) {
   };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <>
+      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
         MUI
       </Typography>
@@ -42,6 +43,8 @@ function Nav(props) {
         ))}
       </List>
     </Box>
+    </>
+
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
@@ -51,6 +54,13 @@ function Nav(props) {
       <CssBaseline />
       <AppBar component="nav">
         <Toolbar>
+        <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { sm: 'block' } }}
+          >
+            MUI
+          </Typography>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -60,13 +70,8 @@ function Nav(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-            MUI
-          </Typography>
+
+          
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
@@ -78,7 +83,7 @@ function Nav(props) {
       </AppBar>
       <Box component="nav">
         <Drawer
-          // anchor={'right'}
+          anchor={'right'}
           container={container}
           variant="temporary"
           open={mobileOpen}
@@ -93,7 +98,9 @@ function Nav(props) {
           }}
         >
           {drawer}
+          
         </Drawer>
+
       </Box>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
