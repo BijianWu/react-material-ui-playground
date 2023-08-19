@@ -78,10 +78,12 @@ function Nav(props) {
       </AppBar>
       <Box component="nav">
         <Drawer
+          // anchor={'right'}
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
+          // disableScrollLock={true}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
