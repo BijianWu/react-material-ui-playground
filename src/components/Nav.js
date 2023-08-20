@@ -41,31 +41,35 @@ function Nav(props) {
     onClick: () => setHighlightNum(value),
   });
 
-  const drawer = (
-    <>
-      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-
-      <Divider />
-      <List>
-        {navItems.map((item, index) => (
-          <ListItem key={item}  disablePadding   >
-            <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-    </>
-
-  );
-
-  const container = window !== undefined ? () => window().document.body : undefined;
-  const flexContainer = {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 0,
-  };
+  const AntTabDrawer = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
+    textTransform: 'none',
+    minWidth: 0,
+    [theme.breakpoints.up('sm')]: {
+      minWidth: 0,
+    },
+    fontWeight: theme.typography.fontWeightRegular,
+    marginRight: theme.spacing(1),
+    color: 'inherit',
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:hover': {
+      color: "#1976d2",
+      opacity: 1,
+    },
+    '&.Mui-focusVisible': {
+      backgroundColor: '#d1eaff',
+    },
+  }));
 
   const AntTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
     textTransform: 'none',
@@ -89,13 +93,56 @@ function Nav(props) {
       '"Segoe UI Symbol"',
     ].join(','),
     '&:hover': {
-      color: '#fff',
+      color: "#fff",
       opacity: 1,
     },
     '&.Mui-focusVisible': {
       backgroundColor: '#d1eaff',
     },
   }));
+
+  
+  const drawer = (
+    <>
+      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+
+      <Divider />
+      {/* <List>
+        {navItems.map((item, index) => (
+          <ListItem key={item}  disablePadding   >
+            <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List> */}
+        <Tabs
+          orientation='vertical'
+          value={value}
+          onChange={handleChange}
+          textColor="primary"
+          // indicatorColor="secondary"
+          // TabIndicatorProps={{ style: { background: "#fff" } }}
+          aria-label="secondary tabs example"
+        >
+          <AntTabDrawer value="one" label="Home" />
+          <AntTabDrawer value="two" label="About" />
+          <AntTabDrawer value="three" label="Contact" />
+
+        </Tabs>
+    </Box>
+    </>
+
+  );
+
+  const container = window !== undefined ? () => window().document.body : undefined;
+  const flexContainer = {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 0,
+  };
+
+
 
   return (
     <Box sx={{ display: 'flex' }}>
