@@ -6,28 +6,17 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { BottomNavigation, BottomNavigationAction, Stack, makeStyles } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import { styled } from '@mui/material/styles';
 import AntTab from './customThemes/AntTab';
 import AntTabDrawer from './customThemes/AntTabDrawer';
 
-const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
 
 function Nav(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [highlightNum, setHighlightNum] = React.useState(0);
   const [value, setValue] = React.useState(false);
 
   const handleChange = (event, newValue) => {
@@ -38,35 +27,18 @@ function Nav(props) {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const buttonProps = (value) => ({
-    selected: highlightNum === value,
-    onClick: () => setHighlightNum(value),
-  });
-
-
-
   
   const drawer = (
     <>
       <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
 
       <Divider />
-      {/* <List>
-        {navItems.map((item, index) => (
-          <ListItem key={item}  disablePadding   >
-            <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
+
         <Tabs
           orientation='vertical'
           value={value}
           onChange={handleChange}
           textColor="primary"
-          // indicatorColor="secondary"
-          // TabIndicatorProps={{ style: { background: "#fff" } }}
           aria-label="secondary tabs example"
         >
           <AntTabDrawer value="one" label="Home" />
@@ -80,11 +52,6 @@ function Nav(props) {
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
-  const flexContainer = {
-    display: 'flex',
-    flexDirection: 'row',
-    padding: 0,
-  };
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -108,34 +75,21 @@ function Nav(props) {
             <MenuIcon />
           </IconButton>
 
-          
           <Box sx={{ display: { xs: 'none', sm: 'block'  } }}>
-          {/* <List component={Stack} direction="row">
-            {navItems.map((item, index) => (
-              <ListItem key={item}  disablePadding   >
-                <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
-                  <ListItemText primary={item} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List> */}
-
-          <Tabs
-          value={value}
-          onChange={handleChange}
-          textColor="inherit"
-          // indicatorColor="secondary"
-          TabIndicatorProps={{ style: { background: "#fff" } }}
-          aria-label="secondary tabs example"
-        >
-          <AntTab value="one" label="Home" />
-          <AntTab value="two" label="About" />
-          <AntTab value="three" label="Contact" />
-
-        </Tabs>
-          
-
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              textColor="inherit"
+              // indicatorColor="secondary"
+              TabIndicatorProps={{ style: { background: "#fff" } }}
+              aria-label="secondary tabs example"
+            >
+            <AntTab value="one" label="Home" />
+            <AntTab value="two" label="About" />
+            <AntTab value="three" label="Contact" />
+          </Tabs>
           </Box>
+
         </Toolbar>
       </AppBar>
       <Box component="nav">
@@ -151,7 +105,7 @@ function Nav(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: "60%" },
           }}
         >
           {drawer}
