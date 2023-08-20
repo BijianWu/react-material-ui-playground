@@ -44,7 +44,12 @@ function Nav(props) {
           <AntTabDrawer value="one" label="Home" />
           <AntTabDrawer value="two" label="About" />
           <AntTabDrawer value="three" label="Contact" />
-
+          <AntTabDrawer value="four" label="Games" />
+          <AntTabDrawer value="five" label="Apps" />
+          <AntTabDrawer value="six" label="Musics" />
+          <AntTabDrawer value="seven" label="Films" />
+          <AntTabDrawer value="eight" label="Login" />
+          <AntTabDrawer value="nine" label="Register" />
         </Tabs>
     </Box>
     </>
@@ -61,7 +66,7 @@ function Nav(props) {
         <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { md: 'block' } }}
           >
             MUI
           </Typography>
@@ -70,12 +75,12 @@ function Nav(props) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
 
-          <Box sx={{ display: { xs: 'none', sm: 'block'  } }}>
+          <Box sx={{ display: { xs: 'none', md: 'block'  } }}>
             <Tabs
               value={value}
               onChange={handleChange}
@@ -87,6 +92,12 @@ function Nav(props) {
             <AntTab value="one" label="Home" />
             <AntTab value="two" label="About" />
             <AntTab value="three" label="Contact" />
+            <AntTab value="four" label="Games" />
+            <AntTab value="five" label="Apps" />
+            <AntTab value="six" label="Musicssssssss" />
+            <AntTab value="seven" label="Films" />
+            <AntTab value="eight" label="Login" />
+            <AntTab value="nine" label="Register" />
           </Tabs>
           </Box>
 
@@ -104,8 +115,8 @@ function Nav(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: "60%" },
+            display: { xs: 'block', md: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: "40%" },
           }}
         >
           {drawer}
