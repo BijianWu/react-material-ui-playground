@@ -14,7 +14,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Stack, makeStyles } from '@mui/material';
+import { BottomNavigation, BottomNavigationAction, Stack, makeStyles } from '@mui/material';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { styled } from '@mui/material/styles';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -23,7 +26,11 @@ function Nav(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [highlightNum, setHighlightNum] = React.useState(0);
+  const [value, setValue] = React.useState(false);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -60,10 +67,40 @@ function Nav(props) {
     padding: 0,
   };
 
+  const AntTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
+    textTransform: 'none',
+    minWidth: 0,
+    [theme.breakpoints.up('sm')]: {
+      minWidth: 0,
+    },
+    fontWeight: theme.typography.fontWeightRegular,
+    marginRight: theme.spacing(1),
+    color: 'inherit',
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:hover': {
+      color: '#fff',
+      opacity: 1,
+    },
+    '&.Mui-focusVisible': {
+      backgroundColor: '#d1eaff',
+    },
+  }));
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ backgroundColor: "gray"}}>
+      <AppBar component="nav" >
         <Toolbar>
         <Typography
             variant="h6"
@@ -84,7 +121,7 @@ function Nav(props) {
 
           
           <Box sx={{ display: { xs: 'none', sm: 'block'  } }}>
-          <List component={Stack} direction="row">
+          {/* <List component={Stack} direction="row">
             {navItems.map((item, index) => (
               <ListItem key={item}  disablePadding   >
                 <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
@@ -92,7 +129,21 @@ function Nav(props) {
                 </ListItemButton>
               </ListItem>
             ))}
-          </List>
+          </List> */}
+
+          <Tabs
+          value={value}
+          onChange={handleChange}
+          textColor="inherit"
+          indicatorColor="secondary"
+          aria-label="secondary tabs example"
+        >
+          <AntTab value="one" label="Home" />
+          <AntTab value="two" label="About" />
+          <AntTab value="three" label="Contact" />
+
+        </Tabs>
+          
 
           </Box>
         </Toolbar>
