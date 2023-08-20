@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Stack, makeStyles } from '@mui/material';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -21,10 +22,17 @@ const navItems = ['Home', 'About', 'Contact'];
 function Nav(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [highlightNum, setHighlightNum] = React.useState(0);
+
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+
+  const buttonProps = (value) => ({
+    selected: highlightNum === value,
+    onClick: () => setHighlightNum(value),
+  });
 
   const drawer = (
     <>
@@ -32,9 +40,9 @@ function Nav(props) {
 
       <Divider />
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+        {navItems.map((item, index) => (
+          <ListItem key={item}  disablePadding   >
+            <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
               <ListItemText primary={item} />
             </ListItemButton>
           </ListItem>
@@ -46,11 +54,16 @@ function Nav(props) {
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
+  const flexContainer = {
+    display: 'flex',
+    flexDirection: 'row',
+    padding: 0,
+  };
 
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ backgroundColor: "gray"}}>
         <Toolbar>
         <Typography
             variant="h6"
@@ -70,12 +83,17 @@ function Nav(props) {
           </IconButton>
 
           
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
-              </Button>
+          <Box sx={{ display: { xs: 'none', sm: 'block'  } }}>
+          <List component={Stack} direction="row">
+            {navItems.map((item, index) => (
+              <ListItem key={item}  disablePadding   >
+                <ListItemButton  variant="outlined"  sx={{ textAlign: 'center' }} {...buttonProps(index +1)}>
+                  <ListItemText primary={item} />
+                </ListItemButton>
+              </ListItem>
             ))}
+          </List>
+
           </Box>
         </Toolbar>
       </AppBar>
