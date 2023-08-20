@@ -18,6 +18,8 @@ import { BottomNavigation, BottomNavigationAction, Stack, makeStyles } from '@mu
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { styled } from '@mui/material/styles';
+import AntTab from './customThemes/AntTab';
+import AntTabDrawer from './customThemes/AntTabDrawer';
 
 const drawerWidth = 240;
 const navItems = ['Home', 'About', 'Contact'];
@@ -41,65 +43,7 @@ function Nav(props) {
     onClick: () => setHighlightNum(value),
   });
 
-  const AntTabDrawer = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
-    textTransform: 'none',
-    minWidth: 0,
-    [theme.breakpoints.up('sm')]: {
-      minWidth: 0,
-    },
-    fontWeight: theme.typography.fontWeightRegular,
-    marginRight: theme.spacing(1),
-    color: 'inherit',
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:hover': {
-      color: "#1976d2",
-      opacity: 1,
-    },
-    '&.Mui-focusVisible': {
-      backgroundColor: '#d1eaff',
-    },
-  }));
 
-  const AntTab = styled((props) => <Tab disableRipple {...props} />)(({ theme }) => ({
-    textTransform: 'none',
-    minWidth: 0,
-    [theme.breakpoints.up('sm')]: {
-      minWidth: 0,
-    },
-    fontWeight: theme.typography.fontWeightRegular,
-    marginRight: theme.spacing(1),
-    color: 'inherit',
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:hover': {
-      color: "#fff",
-      opacity: 1,
-    },
-    '&.Mui-focusVisible': {
-      backgroundColor: '#d1eaff',
-    },
-  }));
 
   
   const drawer = (
@@ -141,8 +85,6 @@ function Nav(props) {
     flexDirection: 'row',
     padding: 0,
   };
-
-
 
   return (
     <Box sx={{ display: 'flex' }}>
