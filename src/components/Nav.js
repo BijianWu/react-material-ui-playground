@@ -135,7 +135,8 @@ function Nav(props) {
           value={value}
           onChange={handleChange}
           textColor="inherit"
-          indicatorColor="secondary"
+          // indicatorColor="secondary"
+          TabIndicatorProps={{ style: { background: "#fff" } }}
           aria-label="secondary tabs example"
         >
           <AntTab value="one" label="Home" />
