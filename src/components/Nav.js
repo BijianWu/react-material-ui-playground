@@ -12,15 +12,30 @@ import Typography from '@mui/material/Typography';
 import Tabs from '@mui/material/Tabs';
 import AntTab from './customThemes/AntTab';
 import AntTabDrawer from './customThemes/AntTabDrawer';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { Container } from '@mui/material';
 
 
 function Nav(props) {
+  const navigate = useNavigate();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [value, setValue] = React.useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    if(newValue === false) {
+      navigate("/");
+    }
+    if(newValue === 'one') {
+      navigate("/");
+    }
+    if(newValue === 'two') {
+      navigate("/about");
+    }
+    if(newValue === 'three') {
+      navigate("/contact");
+    }
   };
 
   const handleDrawerToggle = () => {
@@ -41,7 +56,7 @@ function Nav(props) {
           textColor="primary"
           aria-label="secondary tabs example"
         >
-          <AntTabDrawer value="one" label="Home" />
+          <AntTabDrawer value="one" label="Home"/>
           <AntTabDrawer value="two" label="About" />
           <AntTabDrawer value="three" label="Contact" />
           <AntTabDrawer value="four" label="Games" />
@@ -67,6 +82,7 @@ function Nav(props) {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { md: 'block' } }}
+            onClick={(e) =>handleChange(e, false)}
           >
             MUI
           </Typography>
@@ -124,9 +140,9 @@ function Nav(props) {
         </Drawer>
 
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-        <Typography>
+      <Box  sx={{ px: 1 }}>
+        <Toolbar/>
+        {/* <Typography>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique unde
           fugit veniam eius, perspiciatis sunt? Corporis qui ducimus quibusdam,
           aliquam dolore excepturi quae. Distinctio enim at eligendi perferendis in
@@ -159,7 +175,11 @@ function Nav(props) {
           consequuntur dignissimos numquam at nisi porro a, quaerat rem repellendus.
           Voluptates perspiciatis, in pariatur impedit, nam facilis libero dolorem
           dolores sunt inventore perferendis, aut sapiente modi nesciunt.
-        </Typography>
+        </Typography> */}
+        <Container>
+          <Outlet />
+        </Container>
+
       </Box>
     </Box>
   );
