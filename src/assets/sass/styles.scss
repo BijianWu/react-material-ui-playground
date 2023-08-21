@@ -1,0 +1,8 @@
+.Button {
+    color: black;
+}
+
+/* Increase the specificity */
+.custom.Button:disabled {
+    color: green;
+}

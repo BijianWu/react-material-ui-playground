@@ -1,10 +1,11 @@
-import { Slider } from '@mui/material';
+import { Button, Slider } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import "../assets/css/styles.css";
 
 export default function CustomizationDemo() {
     return (
         <>
-            <Slider
+            {/* <Slider
                 defaultValue={30}
                 sx={{
                     width: 800,
@@ -13,7 +14,13 @@ export default function CustomizationDemo() {
                         borderRadius: '1px',
                     },
                 }}
-            />
+            /> */}
+
+            {/* // Button */}
+            <div className="custom">
+            <Button disabled className="custom Button">MYBTN</Button>
+            </div>
+
         </>
     )
 }
