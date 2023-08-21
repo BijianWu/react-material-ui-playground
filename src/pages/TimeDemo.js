@@ -7,13 +7,15 @@ import dayjs from 'dayjs';
 import moment from 'moment';
 import React from 'react';
 export default function TimeDemo() {
-    const [date, setDate] = React.useState(dayjs(new Date()));
+    let [date, setDate] = React.useState(dayjs(new Date()));
     const [time, setTime] = React.useState(dayjs(moment().startOf('day')));
 
     console.log(date.toDate());
     console.log("date" + date.date() + " month is " + date.month() + " year is " + date.year());
     console.log("hour is " + moment(time.toDate()).hours() + " minutes " + moment(time.toDate()).minutes());
     console.log("hour is " + time.hour() + " minutes " + time.minute());
+
+    console.log("full object is " + date.hour(time.hour()).minute(time.minute()).toDate());
     return (
         <>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
