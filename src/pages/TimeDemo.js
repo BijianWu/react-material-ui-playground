@@ -6,6 +6,7 @@ import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import dayjs from 'dayjs';
 import moment from 'moment';
 import React from 'react';
+import { FormControl } from 'react-bootstrap';
 export default function TimeDemo() {
     let [date, setDate] = React.useState(dayjs(new Date()));
     const [time, setTime] = React.useState(dayjs(moment().startOf('day')));
@@ -19,13 +20,22 @@ export default function TimeDemo() {
     return (
         <>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker', 'TimePicker']}>
+
+            <DemoContainer  components={['DatePicker', 'TimePicker']}>
+            <FormControl required sx={{m:3}}>
+                
+            </FormControl>
             {/* <DatePicker label="Uncontrolled picker" defaultValue={dayjs('2022-04-17')} /> */}
             <DatePicker
             label="Controlled date"
             value={date}
             onChange={(newValue) => setDate(newValue)}
             format='YYYY-MM-DD'
+            slotProps={{
+                textField: {
+                    required: true
+                }
+            }}
             />
 
             <TimePicker
@@ -34,6 +44,11 @@ export default function TimeDemo() {
             value={time}
             onChange={(newValue) => setTime(newValue)}
             format='HH:mm'
+            slotProps={{
+                textField: {
+                    required: true
+                }
+            }}
             />
             </DemoContainer>
         </LocalizationProvider>
