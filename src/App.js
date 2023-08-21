@@ -11,6 +11,7 @@ import Contact from "./pages/Contact.js";
 import TimeDemo from "./pages/TimeDemo.js";
 import CustomizationDemo from "./pages/CustomizationDemo.js";
 import ThemeProviderDemo from "./pages/ThemeProviderDemo.js";
+import TransitionsDemo from "./pages/TransitionsDemo.js";
 
 export default function App(){
 
@@ -24,6 +25,7 @@ export default function App(){
                 <Route path="time-demo" element={<TimeDemo />} />
                 <Route path="customization-demo" element={<CustomizationDemo />} />
                 <Route path="theme-provider-demo" element={<ThemeProviderDemo />} />
+                <Route path="transitions-demo" element={<TransitionsDemo />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
