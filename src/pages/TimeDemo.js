@@ -10,7 +10,6 @@ export default function TimeDemo() {
     const [date, setDate] = React.useState(dayjs(new Date()));
     const [time, setTime] = React.useState(dayjs(moment().startOf('day')));
 
-    // console.log(date);
     console.log(date.toDate());
     console.log("date" + date.date() + " month is " + date.month() + " year is " + date.year());
     console.log("hour is " + moment(time.toDate()).hours() + " minutes " + moment(time.toDate()).minutes());
