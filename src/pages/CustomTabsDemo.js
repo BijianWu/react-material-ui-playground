@@ -1,10 +1,9 @@
-import { Box, Tab, Tabs } from '@mui/material';
+import { Box, Container, Tab, Tabs } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { alpha, styled } from '@mui/material/styles';
 
-  
-  const AntTabs = styled(Tabs)({
+const AntTabs = styled(Tabs)({
   borderBottom: "1px solid #dee2e6",
   
   overflow: "visible!important",
@@ -21,9 +20,9 @@ import { alpha, styled } from '@mui/material/styles';
   justifyContent: "center",
   backgroundColor: "transparent"
   }
-  });
+});
   
-  const StyledTab = styled((props) => (
+const StyledTab = styled((props) => (
     <Tab disableRipple {...props} />
     ))(({ theme }) => ({
     textTransform: "none",
@@ -54,25 +53,26 @@ export default function CustomTabsDemo() {
     const [value, setValue] = useState(0);
       
     const handleChange = (event, newValue) => {
-    setValue(newValue);
+        setValue(newValue);
     };
     
     const CustomizedTabs =()=>{
         return (
-            <Box sx={{ width: "100%" }}>
+            <Container sx={{ width: "100vw" }}>
             <Box>
                 <AntTabs
                 value={value}
                 onChange={handleChange}
                 aria-label="styled tabs example"
                 sx={{ overflow: "overlay" }}
+                
                 >
                 <StyledTab label="Workflows" />
                 <StyledTab label="Datasets" />
                 <StyledTab label="Connections" disabled />
                 </AntTabs>
             </Box>
-            </Box>
+            </Container>
         );     
     }
 
