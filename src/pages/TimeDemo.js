@@ -7,12 +7,14 @@ import dayjs from 'dayjs';
 import moment from 'moment';
 import React from 'react';
 export default function TimeDemo() {
-    const [date, setDate] = React.useState(dayjs('2022-04-17'));
+    const [date, setDate] = React.useState(dayjs(new Date()));
     const [time, setTime] = React.useState(dayjs(moment().startOf('day')));
-    // console.log(date);
-    // console.log(time.toDate());
-    console.log("hour is " + moment(time.toDate()).hours() + " minutes " + moment(time.toDate()).minutes());
 
+    // console.log(date);
+    console.log(date.toDate());
+    console.log("date" + date.date() + " month is " + date.month() + " year is " + date.year());
+    console.log("hour is " + moment(time.toDate()).hours() + " minutes " + moment(time.toDate()).minutes());
+    console.log("hour is " + time.hour() + " minutes " + time.minute());
     return (
         <>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -22,6 +24,7 @@ export default function TimeDemo() {
             label="Controlled date"
             value={date}
             onChange={(newValue) => setDate(newValue)}
+            format='YYYY-MM-DD'
             />
 
             <TimePicker
@@ -29,6 +32,7 @@ export default function TimeDemo() {
             label="Controlled time"
             value={time}
             onChange={(newValue) => setTime(newValue)}
+            format='HH:mm'
             />
             </DemoContainer>
         </LocalizationProvider>
