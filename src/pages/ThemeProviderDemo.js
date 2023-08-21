@@ -15,6 +15,15 @@ export default function ThemeProviderDemo() {
           disableRipple: true, // No more ripple, on the whole application 💣!
         },
       },
+      MuiButton: {
+        styleOverrides: { // change the style of the button
+          // Name of the slot
+          root: {
+            // Some CSS
+            fontSize: '1rem',
+          },
+        },
+      },
     },
   });
 
