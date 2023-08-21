@@ -2,7 +2,7 @@ import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { deepPurple } from '@mui/material/colors';
 import Avatar from '@mui/material/Avatar';
-import { Divider, FormControl, FormHelperText, Input, InputLabel, TextField, Typography } from '@mui/material';
+import { Box, Divider, FormControl, FormHelperText, Input, InputLabel, Stack, TextField, Typography } from '@mui/material';
 
 export default function FormDemo() {
 
@@ -10,15 +10,21 @@ export default function FormDemo() {
         <>
         
             <form>
-                <FormControl sx={{m:3}}>
+                <FormControl required sx={{m:3}}>
                     <InputLabel htmlFor="my-input">Email address</InputLabel>
                     <Input  aria-describedby="my-helper-text" />
                     <FormHelperText >We'll never share your email.</FormHelperText>
                 </FormControl>
 
-                <FormControl sx={{m:3}}>
-                    <TextField label="Name" variant="outlined" />
-                </FormControl>
+                {/* // valinna bootstrap input field style */}
+                <Stack  direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={2}>
+                    <Typography>Name</Typography>
+                    <TextField variant="outlined" />
+                </Stack>
+
 
             </form>
         </>
