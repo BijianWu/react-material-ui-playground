@@ -9,6 +9,7 @@ import Home from "./pages/Home.js";
 import About from "./pages/About.js";
 import Contact from "./pages/Contact.js";
 import TimeDemo from "./pages/TimeDemo.js";
+import CustomizationDemo from "./pages/CustomizationDemo.js";
 
 export default function App(){
 
@@ -20,6 +21,7 @@ export default function App(){
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="time-demo" element={<TimeDemo />} />
+                <Route path="customization-demo" element={<CustomizationDemo />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
