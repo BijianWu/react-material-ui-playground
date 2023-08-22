@@ -14,6 +14,7 @@ import ThemeProviderDemo from "./pages/ThemeProviderDemo.js";
 import TransitionsDemo from "./pages/TransitionsDemo.js";
 import FormDemo from "./pages/FormDemo.js";
 import CustomTabsDemo from "./pages/CustomTabsDemo.js";
+import CustomButton from "./pages/CustomButton.js";
 
 export default function App(){
 
@@ -30,6 +31,7 @@ export default function App(){
                 <Route path="transitions-demo" element={<TransitionsDemo />} />
                 <Route path="form-demo" element={<FormDemo />} />
                 <Route path="custom-tabs-demo" element={<CustomTabsDemo />} />
+                <Route path="custom-button" element={<CustomButton />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
