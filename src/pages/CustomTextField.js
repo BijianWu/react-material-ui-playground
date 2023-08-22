@@ -24,7 +24,13 @@ export default function CustomTextField() {
 
     return (
         <>
-
+            <TextField
+                label="Test"
+                multiline={true}
+                rows={3}
+                sx={{my:3}}
+                variant="outlined"
+            />
 
             <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
                 <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
