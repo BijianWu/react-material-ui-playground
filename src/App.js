@@ -16,6 +16,7 @@ import FormDemo from "./pages/FormDemo.js";
 import CustomTabsDemo from "./pages/CustomTabsDemo.js";
 import CustomButton from "./pages/CustomButton.js";
 import CustomSlider from "./pages/CustomSlider.js";
+import CustomTextField from "./pages/CustomTextField.js";
 
 export default function App(){
 
@@ -34,6 +35,7 @@ export default function App(){
                 <Route path="custom-tabs-demo" element={<CustomTabsDemo />} />
                 <Route path="custom-button" element={<CustomButton />} />
                 <Route path="custom-slider" element={<CustomSlider />} />
+                <Route path="custom-text-field" element={<CustomTextField />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
