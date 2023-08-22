@@ -8,17 +8,17 @@ const AntTabs = styled(Tabs)({
   
   overflow: "visible!important",
   "& div.MuiTabs-scroller": {
-  overflow: "visible!important"
+    overflow: "visible!important"
   },
   "&.Mui-selected": {
-  color: "#495057",
-  backgroundColor: "red",
-  borderColor: `#dee2e6 #dee2e6 #fff`
+    color: "#495057",
+    backgroundColor: "red",
+    borderColor: `#dee2e6 #dee2e6 #fff`
   },
   "& .MuiTabs-indicator": {
-  display: "flex",
-  justifyContent: "center",
-  backgroundColor: "transparent"
+    display: "flex",
+    justifyContent: "center",
+    backgroundColor: "transparent"
   }
 });
   
@@ -38,13 +38,13 @@ const StyledTab = styled((props) => (
     textDecoration: "none",
     transition: `color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out`,
     "&.Mui-selected": {
-    color: "#495057",
-    backgroundColor: "#fff",
-    borderColor: "#dee2e6 #dee2e6 #fff",
-    marginBottom: "-2px"
+        color: "#495057",
+        backgroundColor: "#fff",
+        borderColor: "#dee2e6 #dee2e6 #fff",
+        marginBottom: "-2px"
     },
     "&.Mui-focusVisible": {
-    backgroundColor: "rgba(100, 95, 228, 0.32)"
+        backgroundColor: "rgba(100, 95, 228, 0.32)"
     }
 }));
   
@@ -58,21 +58,20 @@ export default function CustomTabsDemo() {
     
     const CustomizedTabs =()=>{
         return (
-            <Container sx={{ width: "100vw" }}>
-            <Box>
+        
+            <Box >
                 <AntTabs
                 value={value}
                 onChange={handleChange}
                 aria-label="styled tabs example"
-                sx={{ overflow: "overlay" }}
+                sx={{ overflow: "overlay", width: "100vw", p: 0, m: 0 }}
                 
                 >
                 <StyledTab label="Workflows" />
                 <StyledTab label="Datasets" />
-                <StyledTab label="Connections" disabled />
+                <StyledTab label="Connections"  />
                 </AntTabs>
             </Box>
-            </Container>
         );     
     }
 
