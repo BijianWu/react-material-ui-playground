@@ -15,6 +15,7 @@ import TransitionsDemo from "./pages/TransitionsDemo.js";
 import FormDemo from "./pages/FormDemo.js";
 import CustomTabsDemo from "./pages/CustomTabsDemo.js";
 import CustomButton from "./pages/CustomButton.js";
+import CustomSlider from "./pages/CustomSlider.js";
 
 export default function App(){
 
@@ -32,6 +33,7 @@ export default function App(){
                 <Route path="form-demo" element={<FormDemo />} />
                 <Route path="custom-tabs-demo" element={<CustomTabsDemo />} />
                 <Route path="custom-button" element={<CustomButton />} />
+                <Route path="custom-slider" element={<CustomSlider />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
