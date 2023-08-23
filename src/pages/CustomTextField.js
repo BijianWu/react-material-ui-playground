@@ -130,6 +130,24 @@ export default function CustomTextField() {
             />
 
             <StyledTextField variant="outlined" placeholder="Styled API"/>
+
+{/* // change the label and the input text size */}
+            <TextField
+                id="with-placeholder"
+                label="Add id"
+                placeholder="id"
+                inputProps={{style: {fontSize: 40}}} 
+                InputLabelProps={{style: {fontSize: 40}}} 
+                margin="normal"
+                autoFocus={true}
+                helperText={"Add an existing id or select "} />
+
+{/* // using input base to change the font size */}
+            <TextField
+                sx={{
+                    '.MuiInputBase-input': { fontSize: '3.25rem' },
+                }}
+            />
         </>
     )
 }
