@@ -102,6 +102,20 @@ export default function CustomTextField() {
                 }}
                 variant="standard"
             />
+
+            {/* // set custom width for different breakpoints, and set root height to 80px */}
+            <TextField
+                sx={{
+                    width: { sm: 200, md: 300 },
+                    "& .MuiInputBase-root": {
+                        height: 80
+                    }
+                }}
+                id="standard-basic"
+                label="Filled"
+                variant="filled"
+                placeholder="SX"
+            />
         </>
     )
 }
