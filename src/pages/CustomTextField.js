@@ -11,6 +11,8 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
+import { styled } from '@mui/material';
+
 
   function CustomHeightTextField() {
     // use the input props to change the height of the input inside the text field
@@ -31,6 +33,16 @@ import { useState } from 'react';
       />
     );
   }
+
+  // create a custom styled one
+  const StyledTextField = styled(TextField, {
+        name: "StyledTextField",
+    })({
+        width: 300,
+        "& .MuiInputBase-root": {
+            height: 80
+        }
+    });
 
 export default function CustomTextField() {
     const [showPassword, setShowPassword] = useState(false);
@@ -116,6 +128,8 @@ export default function CustomTextField() {
                 variant="filled"
                 placeholder="SX"
             />
+
+            <StyledTextField variant="outlined" placeholder="Styled API"/>
         </>
     )
 }
