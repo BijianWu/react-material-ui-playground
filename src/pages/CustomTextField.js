@@ -12,6 +12,25 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useState } from 'react';
 
+  function CustomHeightTextField() {
+    // use the input props to change the height of the input inside the text field
+    return (
+      <TextField
+        inputProps={{
+            style: {
+                height: "150px",
+                width: "250px",
+                padding: "100px",
+                margin: "10px"
+            },
+        }}
+        id="outlined-basic"
+        variant="outlined"
+        label="Default"
+        defaultValue="Input Text"
+      />
+    );
+  }
 
 export default function CustomTextField() {
     const [showPassword, setShowPassword] = useState(false);
@@ -24,6 +43,8 @@ export default function CustomTextField() {
 
     return (
         <>
+
+            <CustomHeightTextField />
             <TextField
                 label="Test"
                 multiline={true}
