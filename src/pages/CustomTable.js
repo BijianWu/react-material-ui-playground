@@ -100,7 +100,7 @@ function TablePaginationActions(props) {
   
   export default function CustomTable() {
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [rowsPerPage, setRowsPerPage] = useState(2);
   
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
@@ -144,7 +144,7 @@ function TablePaginationActions(props) {
           <TableFooter>
             <TableRow>
               <TablePagination
-                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+                rowsPerPageOptions={[2]}
                 colSpan={3}
                 count={rows.length}
                 rowsPerPage={rowsPerPage}
