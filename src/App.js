@@ -18,6 +18,7 @@ import CustomButton from "./pages/CustomButton.js";
 import CustomSlider from "./pages/CustomSlider.js";
 import CustomTextField from "./pages/CustomTextField.js";
 import CustomTable from "./pages/CustomTable.js";
+import FoldableNav from "./pages/FoldableNav.js";
 
 export default function App(){
 
@@ -38,6 +39,7 @@ export default function App(){
                 <Route path="custom-slider" element={<CustomSlider />} />
                 <Route path="custom-text-field" element={<CustomTextField />} />
                 <Route path="custom-table" element={<CustomTable />} />
+                <Route path="folable-nav" element={<FoldableNav />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
