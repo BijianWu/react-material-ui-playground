@@ -18,6 +18,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import { purple } from '@mui/material/colors';
 
 const drawerWidth = 240;
 
@@ -65,6 +66,14 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
 }));
+
+// const CustomListItem = styled(ListItemButton){
+//     &&.Mui-selected {
+//         background-color: green;
+//       }
+// }
+
+
 
 export default function FoldableNav() {
   const theme = useTheme();
@@ -116,10 +125,30 @@ export default function FoldableNav() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List   sx={{
+            // selected and (selected + hover) states
+            '&& .Mui-selected, && .Mui-selected:hover': {
+            bgcolor: purple[300],
+
+            borderRadius: '10px',
+            '&, & .MuiListItemIcon-root': {
+                bgcolor: purple[300],
+                borderRadius: '10px',
+            },
+            },
+            // hover states
+            '& .MuiListItemButton-root:hover': {
+            bgcolor: 'orange',
+            '&, & .MuiListItemIcon-root': {
+                bgcolor: purple[300],
+                borderRadius: '10px',
+
+            },
+            },
+        }}>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
+            <ListItem key={text}  selected={index===0}>
+              <ListItemButton >
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                 </ListItemIcon>
@@ -131,7 +160,7 @@ export default function FoldableNav() {
         <Divider />
         <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
+            <ListItem key={text} >
               <ListItemButton>
                 <ListItemIcon>
                   {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
