@@ -20,6 +20,7 @@ import CustomTextField from "./pages/CustomTextField.js";
 import CustomTable from "./pages/CustomTable.js";
 import FoldableNav from "./pages/FoldableNav.js";
 import CustomList from "./pages/CustomList.js";
+import Login from "./pages/Login.js";
 
 export default function App(){
 
@@ -42,6 +43,8 @@ export default function App(){
                 <Route path="custom-table" element={<CustomTable />} />
                 <Route path="folable-nav" element={<FoldableNav />} />
                 <Route path="custom-list" element={<CustomList />} />
+
+                <Route path="login" element={<Login />} />
             </Route>
         </Routes> 
          {/* <SelectElement />
